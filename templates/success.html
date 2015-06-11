@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dashboard</title>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+</head>
+<body>
+    {% if workspaceName %}
+        <h2>Workspace: {{ workspaceName }} </h2>
+    {% endif %}
+    <div>
+        <ul id="projectList">
+            {% for project in projectList %}
+                <li>
+                    <a href="{{ project.ideUrl }}" target="_blank">{{ project.name }}</a>
+                </li>
+            {% endfor%}
+        </ul>
+    </div>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>
